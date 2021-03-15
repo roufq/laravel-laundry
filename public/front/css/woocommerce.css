@@ -1,0 +1,281 @@
+/*------------------------------------------
+	Theme Name: Maxclean
+	Start Date : 9-Sep-16
+	End Date : 
+	Last change: 
+	Version: 1.0
+	Assigned to:
+	Primary use:
+--------------------------------------------*/
+
+/*-------------------------------------------
+	* Woocommerce
+---------------------------------------------*/
+
+@font-face {
+	font-family: star;
+	src:url("../fonts/star.eot");
+	src:url("../fonts/star.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/star.woff") format("woff"),
+	url("../fonts/star.ttf") format("truetype"),
+	url("../fonts/star.svg#star") format("svg");
+	font-weight:400;
+	font-style:normal;
+}
+@font-face {
+	font-family: WooCommerce;
+	src:url("../fonts/WooCommerce.eot");
+	src:url("../fonts/WooCommerce.eot?#iefix") format("embedded-opentype"),
+	url("../fonts/WooCommerce.woff") format("woff"),
+	url("../fonts/WooCommerce.ttf") format("truetype"),
+	url("../fonts/WooCommerce.svg#WooCommerce") format("svg");
+	font-weight:400;
+	font-style:normal;
+}
+
+/* * Woocommerce */
+.shop-section {
+	margin-bottom: 90px;
+}
+.shop-section .section-header p {
+	color: #222;
+	padding: 0 10px;
+}
+.woocommerce .products ul, 
+.woocommerce ul.products {
+	clear: both;
+    list-style: none;
+    padding: 0;
+	box-sizing: border-box;
+}
+.woocommerce .products ul li, 
+.woocommerce ul.products li {
+	float: left;
+	padding: 0 15px;
+	box-sizing: border-box;
+	width: 33.3333%;
+	position: relative;
+	text-align: center;
+	margin-bottom: 50px;
+}
+.woocommerce ul.products li a {
+	text-decoration: none;
+}
+.woocommerce .products ul li > a .product-img-box,
+.woocommerce ul.products li > a .product-img-box {
+	position: relative;
+	overflow: hidden;
+}
+.woocommerce span.onsale {
+	border-radius: 100%;
+	display: inline-block;
+    font-weight: 700;
+    position: absolute;
+    text-align: center;
+    margin: 0;
+	height: 49px;
+	width: 49px;
+	line-height: 50px;
+    background-color: #444;
+    color: #fff;
+    font-size: 12px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	-webkit-font-smoothing: antialiased;
+	text-transform: uppercase;
+	z-index: 2;
+}
+.woocommerce ul.products li.product .onsale {
+    top: 30px;
+    left: 50px;
+    right: auto;
+}
+.woocommerce ul.products li.product .onsale.sale {
+	background-color: #0082ca;
+}
+.woocommerce ul.products li.product .product-img-box::before {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	left: 18px;
+	right: 18px;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	display: inline-block;
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+.woocommerce .products ul li a h3, 
+.woocommerce ul.products li a h3 {
+	color: #222;
+	font-size: 16px;
+	margin-top: 25px;
+	letter-spacing: 0.64px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+.woocommerce ul.products li a h5 {
+	color: #0082ca;
+	font-size: 14px;
+	letter-spacing: 0.56px;
+	line-height: 28px;
+	margin: 0;
+}
+.woocommerce ul.products li a .detail-box {
+	margin-top: 40px;
+}
+.woocommerce ul.products li a .detail-box i {
+	color: #0082ca;
+}
+.woocommerce ul.products li.product .price {
+	color: #000;
+	display: block;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 25px;
+	letter-spacing: 1px;
+	margin-top: 5px;
+}
+.woocommerce ul.products li.product .price span.amount {
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	font-weight: normal;
+	font-size: 20px;
+	letter-spacing: 1px;
+}
+.woocommerce ul.products li.product p.add-to-cart {
+    bottom: 30%;
+    display: inline-block;
+    left: 30px;
+    margin: 0 auto;
+    position: absolute;
+    right: 30px;
+	-webkit-transition: all 1s ease 0s;
+	-moz-transition: all 1s ease 0s;
+	-o-transition: all 1s ease 0s;
+	transition: all 1s ease 0s;
+}
+.woocommerce ul.products li.product p.add-to-cart span {
+	display: inline-block;
+	padding-left: 35px;
+}
+.woocommerce ul.products li.product p.add-to-cart a {
+	margin-right: 5px;
+	border: 2px solid #c2c2c2;
+	border-radius: 100%;
+	color: #0082ca;
+	display: inline-block;
+	width: 39px;
+	height: 39px;
+	line-height: 37px;
+	text-align: center;
+}
+.woocommerce ul.products li.product p.add-to-cart a.return {
+	opacity: 0;
+}
+.woocommerce ul.products li.product p.add-to-cart a:last-child {
+	margin-right: 0;
+}
+.woocommerce ul.products li.product:hover .product-img-box::before {
+	opacity: 1;
+}
+.woocommerce ul.products li.product:hover p.add-to-cart {
+	bottom: 60%;
+}
+.woocommerce ul.products li.product:hover p.add-to-cart span{
+	padding-left: 0;
+}
+.woocommerce ul.products li.product:hover  p.add-to-cart a {
+	border-color: #fff;
+	color: #fff;
+}
+.woocommerce ul.products li.product:hover  p.add-to-cart a.return {
+	opacity: 1;
+}
+
+/*---------------------------------------------------
+	* Responsive
+-----------------------------------------------------*/
+
+/* - min-width: 992 */
+@media (min-width: 992px) {
+	.shop-section .section-header p {
+		padding: 0 20%;
+	}
+}
+
+/* - min-width: 992 to max-width: 1199 */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.woocommerce ul.products li.product:hover > span.order {
+		top: 25%;
+	}
+}
+
+/* - max-width: 1200 */
+@media (max-width: 1200px) {
+	.woocommerce ul.products li.product .product-img-box::before{
+		left: 0;
+		right: 0;
+	}
+	.woocommerce ul.products li.product p.add-to-cart {
+		bottom: 33%;
+	}
+}
+
+/* - max-width: 991 */
+@media (max-width: 991px) {
+	.shop-section.woocommerce .products ul li, 
+	.shop-section.woocommerce ul.products li {
+		width: 50%;
+	}
+	.woocommerce ul.products li.product .product-img-box::before {
+		max-width: 325px;
+		display: block;
+		margin: 0 auto;
+	}
+	.shop-section.woocommerce ul.products li:nth-child(3n+1) {
+		clear: right;
+	}
+	.shop-section.woocommerce ul.products li:nth-child(6n+1) {
+		clear: left;
+	}
+}
+
+/* - min-width: 768 to max-width: 991 */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+/* - max-width: 767 */
+@media (max-width: 767px) {
+	
+}
+
+/* - max-width: 639 */
+@media (max-width: 639px) {	
+	
+}
+
+/* - max-width: 479 */
+@media (max-width: 479px) {	
+	.shop-section.woocommerce .products ul li, 
+	.shop-section.woocommerce ul.products li {
+		width: 100%;
+	}
+}
+
+/* - max-width: 360 */
+@media (max-width: 360px) {
+	.woocommerce ul.products li.product p.add-to-cart {
+		bottom: 38%;
+	}
+}
+
