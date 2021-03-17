@@ -20,7 +20,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $data['transaksi'] = Transaksi::with('paket')->get();
+        $data['transaksi'] = Transaksi::all();
         // dd($data['transaksi']->paket());
         return view('admin.transaksi.index', $data);
     }
@@ -121,6 +121,12 @@ class TransaksiController extends Controller
      */
     public function edit($id)
     {
+        $trx = Transaksi::first();
+        if (!$trx) {
+            $data['invNo'] = 1;
+        } else {
+            $data['invNo'] = $trx->id + 1;
+        }
         $data['paket'] = Paket::get();
         $data['detail_transaksi'] = detail_transaksi::get();
         $data['outlet']= outlet::get();

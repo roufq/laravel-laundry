@@ -39,7 +39,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

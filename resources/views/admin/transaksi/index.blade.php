@@ -22,7 +22,9 @@
                                                     <th>Waktu</th>
                                                     <th>Tanggal Bayar</th>
                                                     <th>Batas waktu</th>
-                                                    <th>Biaya Tambahan</th>
+                                                    <th>Biaya Tambahan</th>     
+                                                     
+                                                                            
                                                     <th>Diskon</th>
                                                     <th>Pajak</th>
                                                     <th>Berat</th>
@@ -40,7 +42,13 @@
                                                     <td>{{$row->outlet->nama}}</td>
                                                     <td>{{$row->detail_transaksi->paket->nama_paket }}</td>
                                                     <td>{{$row->kode_invoice}}</td>
-                                                    <td>{{$row->member_id}}</td>
+                                                    <td>
+                                                        @if(!empty($row->member->nama))
+                                                        {{$row->member->nama}}
+                                                        @else
+                                                        {{$row->member_id}}
+                                                        @endif
+                                                    </td>
                                                     <td>{{$row->datetime}}</td>
                                                     <td>{{$row->tgl_bayar}}</td>
                                                     <td>{{$row->batas_waktu}}</td>

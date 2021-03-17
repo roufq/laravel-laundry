@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Paket;
 use App\outlet;
+use App\Member;
 
 class Transaksi extends Model
 {
@@ -15,7 +16,7 @@ class Transaksi extends Model
     ];
     public function member()
     {
-        return $this->belongsTo(Member::class, 'member_id', 'id');
+        return $this->belongsTo(outlet::class, 'member_id', 'id' );
     }
 
     public function detail_transaksi()
