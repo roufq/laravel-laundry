@@ -161,6 +161,8 @@ class TransaksiController extends Controller
             'ttl_harga' => $request->ttl_harga,
             'status' => $request->status,
             'dibayar' => $request->dibayar,
+            'kembalian' => $request->kembalian,
+            'kekurangan' => $request->kekurangan,
             'user_id' => $request->user_id,
         );
         $notif = $transaksi->fill($data)->save();

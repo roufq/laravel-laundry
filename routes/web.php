@@ -49,6 +49,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
         //laporan
         Route::resource('/laporan','LaporanController');
         Route::get('laporan/cari','LaporanController@cari')->name('laporan.cari');
+        Route::get('laporan/print', 'LaporanController@print')->name('laporan.print');
         //user
         Route::resource('/user','UserController');
         Route::post('user/update/{id}','UserController@update')->name('user.update');

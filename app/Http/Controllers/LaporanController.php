@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use PDF;
 use App\detail_transaksi;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\AssignOp\Concat;
@@ -49,6 +50,12 @@ class LaporanController extends Controller
     public function create()
     {
         //
+    }
+
+    public function print()
+    {
+        $pdf = PDF::loadredirect('admin/laporan')->setPeper('A4','potret');
+        return $pdf->stream();
     }
 
     /**

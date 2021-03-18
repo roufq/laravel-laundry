@@ -143,14 +143,14 @@
                             <div class="col-md-2" id="diskon">
                                 <label>diskon</label>
                                 <div class="input-group m-b-15">
-                                    <input data-parsley-type="number" name="diskon" id="diskon" type="number" class="form-control diskon" value="10" placeholder="Enter number" />
+                                    <input data-parsley-type="number" name="diskon" id="diskon" type="number" class="form-control diskon" required placeholder="Enter number" />
                                     <span class="input-group-addon">%</span>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <label>Pajak</label>
                                 <div class="input-group m-b-15">
-                                    <input data-parsley-type="text" name="pajak" id="pajak" type="text" class="form-control" required placeholder="Enter number" />
+                                    <input data-parsley-type="text" name="pajak" id="pajak" type="text" class="form-control" value="10" required placeholder="Enter number" />
                                     <span class="input-group-addon">%</span>
 
                                 </div>
@@ -174,6 +174,20 @@
                                 </div>
                             </div>
                             <div class="col-md-2">
+                                <label>Kembalian</label>
+                                <div>
+                                    <input data-parsley-type="number" name="kembalian" id="kembalian" value="0" type="number" class="form-control disabled tambah" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>kekurangan</label>
+                                <div>
+                                    <input data-parsley-type="number" name="kekurangan" id="kekurangan" value="0" type="number" class="form-control disabled tambah" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
                                 <label>Nama user</label>
                                 <div>
                                     <select name="user_id" class="form-control custom-select custom-select-lg mb-3">
@@ -184,8 +198,6 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-2">
                                 <label>status</label>
                                 <div>
@@ -271,37 +283,46 @@
         })
 
         $('#idTombolPlus').on('click', function() {
-            var ttl_harga = $('#tambah').val();
             var sub_total = $('#sub_total').val();
-            var diskon = $('.diskon').val();
-
-            var ttl_harga = parseInt(ttl_harga) + parseInt(sub_total) / 100 * parseInt(diskon);
-            $('#tambah').val(ttl_harga);
-            $('#ttl_harga').val(ttl_harga);
+            var ttl_harga = $('#tambah').val();
+            var pajak = $('#pajak').val();
+            // console.log(sub_total + ' - ' + ttl_harga);
+            var anjim = parseInt(sub_total) + parseInt(ttl_harga);
+            var ttl = parseInt(sub_total) * parseInt(pajak) / 100;
+            var pjk = parseInt(sub_total) + parseInt(ttl)
+            $('#tambah').val(pjk);
+            $('#ttl_harga').val(pjk);
         })
 
-        $('#pajak').on('change', function() {
+        $('.diskon').on('change', function() {
             var ttl_harga = $('#ttl_harga').val();
-            var pajak = $(this).val();
+            var diskon = $(this).val();
 
-            var ttl_harga = parseInt(ttl_harga) / 100 * parseInt(pajak);
-            $('#ttl_harga').val(ttl_harga);
+            var jumlah = parseInt(ttl_harga) - parseInt(diskon);
+            $('#ttl_harga').val(jumlah);
         })
 
         $('#biaya_tambahan').on('change', function() {
             var ttl_harga = $('#ttl_harga').val();
             var biaya_tambahan = $(this).val();
 
-            var ttl_harga = parseInt(ttl_harga) / 100 * parseInt(biaya_tambahan);
-            $('#ttl_harga').val(ttl_harga);
+            var jumlah = parseInt(ttl_harga) + parseInt(biaya_tambahan);
+            $('#ttl_harga').val(jumlah);
         })
 
         $('#dibayar').on('change', function() {
             var ttl_harga = $('#ttl_harga').val();
             var dibayar = $(this).val();
+            var jumlah = parseInt(ttl_harga) - parseInt(dibayar);
+            if (dibayar > jumlah) {
+                var kembalian = parseInt(dibayar) - parseInt(ttl_harga);
+                $('#kembalian').val(kembalian);
+            } else {
+                var kekuragan = parseInt(ttl_harga) - parseInt(dibayar);
+                $('#kekurangan').val(kekuragan);
+            }
 
-            var ttl_harga = parseInt(ttl_harga) - parseInt(dibayar);
-            $('#ttl_harga').val(ttl_harga);
+
         })
     });
 </script>

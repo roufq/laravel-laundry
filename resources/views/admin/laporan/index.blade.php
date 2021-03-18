@@ -22,8 +22,9 @@
                                                     <input type="text" name="batas_waktu" class="colorpicker-default form-control" >
                                                 </div>
                                                 <input type="submit" value="Cari">
+                                                <a href="{{route('admin.laporan.print')}}">print</a>
                                             </div>
-                                            <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                                            <table id="datatable-button" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>

@@ -29,6 +29,8 @@ class CreateTranssaksisTable extends Migration
             $table->string('ttl_harga');
             $table->string('status');
             $table->string('dibayar');
+            $table->string('kembalian');
+            $table->string('kekuragan');
             $table->string('user_id');
             $table->timestamps();
         });

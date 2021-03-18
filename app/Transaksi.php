@@ -12,7 +12,7 @@ class Transaksi extends Model
     protected $table = 'transaksis';
     
     protected $fillable = [
-        'id','outlet_id','kode_invoice','member_id','datetime','jenis','sub_total','batas_waktu','tgl_bayar','ttl_harga','biaya_tambahan','diskon','pajak','status','dibayar','user_id',
+        'id','outlet_id','kode_invoice','member_id','datetime','jenis','sub_total','batas_waktu','tgl_bayar','ttl_harga','biaya_tambahan','diskon','pajak','status','dibayar', 'kembalian', 'kekuragan','user_id',
     ];
     public function member()
     {
