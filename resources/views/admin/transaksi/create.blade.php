@@ -143,7 +143,7 @@
                             <div class="col-md-2" id="diskon">
                                 <label>diskon</label>
                                 <div class="input-group m-b-15">
-                                    <input data-parsley-type="number" name="diskon" id="diskon" type="number" class="form-control diskon" required placeholder="Enter number" />
+                                    <input data-parsley-type="number" name="diskon" id="diskon" type="number" class="form-control diskon" placeholder="Enter number" />
                                     <span class="input-group-addon">%</span>
                                 </div>
                             </div>
@@ -176,15 +176,15 @@
                             <div class="col-md-2">
                                 <label>Kembalian</label>
                                 <div>
-                                    <input data-parsley-type="number" name="kembalian" id="kembalian" value="0" type="number" class="form-control disabled tambah" />
+                                    <input data-parsley-type="number" name="kembalian" id="kembalian" value="0" type="number" class="form-control disabled " />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-2">
-                                <label>kekurangan</label>
+                                <label>Kekurangan</label>
                                 <div>
-                                    <input data-parsley-type="number" name="kekurangan" id="kekurangan" value="0" type="number" class="form-control disabled tambah" />
+                                    <input data-parsley-type="number" name="kekuragan" id="kekuragan" value="0" type="number" class="form-control disabled kk" />
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -289,7 +289,7 @@
             // console.log(sub_total + ' - ' + ttl_harga);
             var anjim = parseInt(sub_total) + parseInt(ttl_harga);
             var ttl = parseInt(sub_total) * parseInt(pajak) / 100;
-            var pjk = parseInt(sub_total) + parseInt(ttl)
+            var pjk = parseInt(anjim) + parseInt(ttl);
             $('#tambah').val(pjk);
             $('#ttl_harga').val(pjk);
         })
@@ -313,15 +313,14 @@
         $('#dibayar').on('change', function() {
             var ttl_harga = $('#ttl_harga').val();
             var dibayar = $(this).val();
-            var jumlah = parseInt(ttl_harga) - parseInt(dibayar);
+            var jumlah = parseInt(ttl_harga) ;
             if (dibayar > jumlah) {
                 var kembalian = parseInt(dibayar) - parseInt(ttl_harga);
                 $('#kembalian').val(kembalian);
             } else {
-                var kekuragan = parseInt(ttl_harga) - parseInt(dibayar);
-                $('#kekurangan').val(kekuragan);
+                var jumlah = parseInt(ttl_harga) - parseInt(dibayar);
+                $('.kk').val(jumlah);
             }
-
 
         })
     });

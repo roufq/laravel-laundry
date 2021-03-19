@@ -85,6 +85,8 @@ class TransaksiController extends Controller
             'ttl_harga' => $request->ttl_harga, 
             'status' => $request->status,
             'dibayar' => $request->dibayar,
+            'kembalian' => $request->kembalian,
+            'kekuragan' => $request->kekuragan,
             'user_id' => $request->user_id, 
         ]);
 
@@ -110,7 +112,9 @@ class TransaksiController extends Controller
      */
     public function show($id)
     {
-       //
+        $data['data'] = Transaksi::where('id',$id)->first();
+        return view('admin.transaksi.struck', $data);
+
     }
 
     /**

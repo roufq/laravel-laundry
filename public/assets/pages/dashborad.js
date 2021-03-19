@@ -36,7 +36,15 @@ Dashboard
     DashboardApp.prototype.start = function() {
         var $this = this;
         // creates the data table
-        this.$dataTable.DataTable();
+        this.$dataTable.DataTable({
+            dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+        });
 
         this.$window.on('resize', function(e) {
             clearTimeout($this.$lastResizeEventTracker);

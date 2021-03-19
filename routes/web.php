@@ -46,6 +46,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
         Route::resource('/transaksi','TransaksiController');
         Route::post('transaksi/update/{id}','TransaksiController@update')->name('transaksi.update');
         route::get('/transaksi/destroy/{id}','TransaksiController@destroy')->name('transaksi.destroy');
+        route::get('/transaksi/struck/{id}','TransaksiController@show')->name('transaksi.struck');
         //laporan
         Route::resource('/laporan','LaporanController');
         Route::get('laporan/cari','LaporanController@cari')->name('laporan.cari');
