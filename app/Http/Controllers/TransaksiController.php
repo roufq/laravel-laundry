@@ -151,17 +151,7 @@ class TransaksiController extends Controller
     {
         $transaksi = Transaksi::FindOrFail($id);
         $data = array(
-            'outlat_id' => $request->outlet_id,
-            'kode_invoice' => $request->kode_invoice,
-            'member_id' => $request->member_id,
-            'jenis' => $request->jenis,
-            'datetime' => $request->datetime,
-            'batas_waktu' => $request->batas_waktu,
-            'tgl_bayar' => $request->tgl_bayar,
-            'biaya_tambahan' => $request->biaya_tambahan,
-            'diskon' => $request->diskon,
-            'pajak' => $request->pajak,
-            'sub_total' => $request->sub_total,
+            
             'ttl_harga' => $request->ttl_harga,
             'status' => $request->status,
             'dibayar' => $request->dibayar,

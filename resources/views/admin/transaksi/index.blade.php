@@ -19,17 +19,15 @@
                                     <th>Nama Paket</th>
                                     <th>Kode invoice</th>
                                     <th>Id member</th>
+                                    <th>Status</th>
                                     <th>Waktu</th>
                                     <th>Tanggal Bayar</th>
                                     <th>Batas waktu</th>
                                     <th>Biaya Tambahan</th>
-
-
                                     <th>Diskon</th>
                                     <th>Pajak</th>
                                     <th>Berat</th>
                                     <th>Total harga</th>
-                                    <th>Status</th>
                                     <th>DI Bayar</th>
                                     <th>Id User</th>
                                     <th>Aksi</th>
@@ -49,6 +47,7 @@
                                         {{$row->member_id}}
                                         @endif
                                     </td>
+                                    <td>{{$row->status}}</td>
                                     <td>{{$row->datetime}}</td>
                                     <td>{{$row->tgl_bayar}}</td>
                                     <td>{{$row->batas_waktu}}</td>
@@ -57,7 +56,6 @@
                                     <td>{{$row->pajak}}</td>
                                     <td>{{$row->detail_transaksi->qty}}</td>
                                     <td>{{$row->ttl_harga}}</td>
-                                    <td>{{$row->status}}</td>
                                     <td>{{$row->dibayar}}</td>
                                     <td>{{$row->user->name}}</td>
                                     <td>
@@ -78,3 +76,16 @@
 </div>
 
 @endsection
+@push('js')
+<script>
+    var table = $('#datatable-responsive').DataTable();
+
+    // #column3_search is a <input type="text"> element
+    $(status).on('keyup', function() {
+        table
+            .columns(3)
+            .search(this.value)
+            .draw();
+    });
+</script>
+@endpush
