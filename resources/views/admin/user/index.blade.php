@@ -17,7 +17,6 @@
                                                     <th>ID</th>
                                                     <th>nama</th>
                                                     <th>email</th>
-                                                    <th>Password</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -27,7 +26,6 @@
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$row->name}}</td>
                                                     <td>{{$row->email}}</td>
-                                                    <td>{{$row->password}}</td>
                                                     <td>
                                                         <a href="{{route('admin.user.edit',$row->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
                                                         <a href="{{route('admin.user.destroy',$row->id)}}" onclick="return confirm('apa kamu serius?')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>

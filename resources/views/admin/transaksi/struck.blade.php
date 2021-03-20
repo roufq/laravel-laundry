@@ -1,298 +1,102 @@
-<html>
+@extends('home')
+@section('title','transaksi')
+@section('content')
 
-<head>
-    <title>STRUK</title>
-    <style>
-        body {
-            margin: 0px;
-            text-decoration: none;
-            box-sizing: border-box;
-            list-style: none;
-        }
+<!-- Start right Content here -->
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            list-style: none;
-            text-decoration: none;
-            font-family: 'Josefin Sans', sans-serif;
-        }
+<div class="panel-body">
 
-        .navbar {
-            background-color: #f41818;
-            width: 249px;
-            height: 60px;
-            float: left;
-            font-family: 'Josefin Sans', sans-serif;
-        }
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                <h4 class="pull-right">Order # {{$data->kode_invoice}}</h4>
+                <img src="{{asset('images/logo.png')}}" alt="logo" height="36">
+            </div>
+            <hr>
 
-        .navbar h3 {
-            color: white;
-            font-size: 30px;
-            margin-left: 20px;
-            margin-top: 4px;
-            padding-top: 20px;
-        }
+            <div class="row">
+                <div class="col-xs-6">
+                    <address>
+                        <strong>Kode Transaksi</strong><br>
+                        {{$data->id}}<br>
+                        {{$data->user->name}}
+                    </address>
+                </div>
+                <div class="col-xs-6 text-right">
 
-        .navbar-default {
-            background-color: #f41818;
-            width: 843px;
-            height: 90px;
-            float: left;
-            margin-left: 249px;
-            margin-top: -90px;
-        }
-
-        .navbar-default h3 {
-            font-size: 39px;
-            color: white;
-            margin-top: 80px;
-            font-family: 'Josefin Sans', sans-serif;
-        }
-
-        .wrapper {
-            display: flex;
-            position: static;
-            float: left;
-            background-color: #b50c0c;
-        }
-
-        .wrapper.sidebar {
-            margin-left: 100px;
-            width: 200px;
-            height: 100%;
-            background: #4b4276;
-            padding: 30px 0px;
-            position: fixed;
-
-        }
-
-        .wrapper .sidebar ul li {
-
-            padding: 15px;
-            border-bottom: 1px solid #bdb8d7;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-
-        }
-
-        .wrapper .sidebar ul li a {
-            color: #bdb8d7;
-            display: block;
-        }
-
-        .wrapper .sidebar ul li a.fas {
-            width: 25px;
-        }
-
-        .wrapper .sidebar ul li:hover {
-            background-color: #594f8d;
-        }
-
-        .wrapper .sidebar ul li:hover a {
-            color: #fff;
-        }
-
-        .dropdown:hover .isi-dropdown {
-            display: block;
-        }
-
-        .isi-dropdown a:hover {
-            color: #bdb8d7;
-        }
-
-        .isi-dropdown {
-            display: none;
-            z-index: 1;
-        }
-
-        .isi-dropdown a {
-            color: #4B4276;
-            padding: 10px;
-        }
-
-        .content {
-            height: 540px;
-            width: 1365px;
-            background-color: #dddddd;
-            float: left;
-
-        }
-
-
-
-
-
-        .box {
-            width: 830px;
-            height: 50px;
-            background-color: white;
-            float: left;
-            margin-left: 7px;
-            margin-top: 10px;
-            border-radius: 10px;
-            border-top: 2px solid #9b0c0c;
-            border-bottom: 2px solid #9b0c0c;
-        }
-
-        .box1 {
-            width: 830px;
-            height: 300px;
-            background-color: white;
-            float: left;
-            margin-left: 7px;
-            margin-top: 20px;
-            border-radius: 10px;
-            border-top: 2px solid #9b0c0c;
-            border-bottom: 2px solid #9b0c0c;
-        }
-
-        .box p {
-            margin-left: 10px;
-            margin-top: 20px;
-        }
-
-        .box1 p {
-            margin-left: 10px;
-            margin-top: 20px;
-        }
-
-        .transaksi tr td input {
-            width: 120px;
-            height: 30px;
-            border-radius: 5px;
-        }
-
-        .tabel tr th {
-            height: 30px;
-            width: 120px;
-            background-color: #2bf2e1;
-        }
-
-        .tabel tr td {
-            background-color: #dbbcbc;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="kotak-struk">
-        <div class="head">
-            <p class="logo">FERA 94</p>
-            <p class="almt">Penyewaan Mobil</p>
-            <p class="notelp">085213770187</p>
-        </div>
-        <div class="isi">
-            <table class="tabel1">
-                <tr>
-                    <td>Kode Transaksi</td>
-                    <td>:</td>
-                    <td>{{$data->id}}</td>
-                </tr>
-                <tr>
-                    <td>Tanggal Mencuci</td>
-                    <td>:</td>
-                    <td>{{$data->datetime}}</td>
-                </tr>
-                <tr>
-                    <td>Tanggal Bayar</td>
-                    <td>:</td>
-                    <td>{{$data->tgl_bayar}}</td>
-                </tr>
-                <tr>
-                    <td>Tanggal Selesai</td>
-                    <td>:</td>
-                    <td>{{$data->batas_waktu}}</td>
-                </tr>
-                <tr>
-                    <td>Member/Bukan Member</td>
-                    <td>:</td>
-                    <td>{{$data->member_id}}</td>
-                </tr>
-                <tr>
-                    <td colspan="4">====================================================</td>
-                </tr>
-            </table>
-            <table class="tabel2">
-                <tr>
-                    <td>Jenis</td>
-                    <td>:</td>
-                    <td>{{$data->jenis}}</td>
-                </tr>
-                <tr>
-                    <td>Nama Paket</td>
-                    <td>:</td>
-                    <td>{{$data->detail_transaksi->paket->nama_paket}}</td>
-                </tr>
-                <tr>
-                    <td>Harga</td>
-                    <td>:</td>
-                    <td>{{$data->detail_transaksi->paket->harga}}</td>
-                </tr>
-                <tr>
-                    <td>Berat</td>
-                    <td>:</td>
-                    <td>{{$data->detail_transaksi->qty}}</td>
-                </tr>
-                <tr>
-                    <td>Sub Total</td>
-                    <td>:</td>
-                    <td>{{$data->sub_total}}</td>
-                </tr>
-                <tr>
-                    <td colspan="4">====================================================</td>
-                </tr>
-            </table>
-            <table class="tabel3">
-                <tr>
-                    <td>Diskon</td>
-                    <td>:</td>
-                    <td>{{$data->diskon}}</td>
-                </tr>
-                <tr>
-                    <td>pajak</td>
-                    <td>:</td>
-                    <td>{{$data->pajak}}</td>
-                </tr>
-                <tr>
-                    <td>Biaya Tambahan</td>
-                    <td>:</td>
-                    <td>{{$data->biaya_tambahan}}</td>
-                </tr>
-                <tr>
-                    <td>dibayar</td>
-                    <td>:</td>
-                    <td>{{$data->dibayar}}</td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>:</td>
-                    <td>{{$data->ttl_harga}}</td>
-                </tr>
-                <tr>
-                    <td>Kembalian</td>
-                    <td>:</td>
-                    <td>{{$data->kembalian}}</td>
-                </tr>
-                <tr>
-                    <td>Kekuragan</td>
-                    <td>:</td>
-                    <td>{{$data->kekuragan}}</td>
-                </tr>
-                <tr>
-                    <td colspan="4">====================================================</td>
-                </tr>
-            </table>
-            <div class="foot">
-                <p>Terima Kasih Atas Kunjungan Anda</p>
-                <p>Semoga Anda Puas Dengan Layanan Kami</p>
+                    <address>
+                        <strong>Tanggal Selesai:</strong><br>
+                        {{$data->batas_waktu}}<br><br>
+                    </address>
+                </div>
             </div>
         </div>
     </div>
-</body>
 
-</html>
-<script>
-    window.print();
-</script>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Order summary</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td><strong>Jenis</strong></td>
+                                    <td class="text-center"><strong>Nama Paket</strong></td>
+                                    <td class="text-center"><strong>Berat</strong>
+                                    </td>
+                                    <td class="text-center"><strong>pajak</strong>
+                                    </td>
+                                    <td class="text-right"><strong>Totals</strong></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                <tr>
+                                    <td>{{$data->detail_transaksi->paket->jenis}}</td>
+                                    <td class="text-center">{{$data->detail_transaksi->paket->nama_paket}}</td>
+                                    <td class="text-center">{{$data->detail_transaksi->qty}}</td>
+                                    <td class="text-center">{{$data->pajak}}</td>
+                                    <td class="text-right">{{$data->sub_total}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line"></td>
+                                    <td class="thick-line text-center">
+                                        <strong>Subtotal</strong>
+                                    </td>
+                                    <td class="thick-line text-right">{{$data->sub_total}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line"></td>
+                                    <td class="no-line text-center">
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="no-line text-right">
+                                        <h4 class="m-0">{{$data->ttl_harga}}</h4>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="hidden-print">
+                        <div class="pull-right">
+                            <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+                            <a href="#" class="btn btn-primary waves-effect waves-light">Send</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- end row -->
+</div> <!-- panel body -->
+
+@endsection

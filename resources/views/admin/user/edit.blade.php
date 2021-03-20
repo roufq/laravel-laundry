@@ -27,7 +27,7 @@
                                                         <div class="form-group">
                                                             <label>password</label>
                                                             <div>
-                                                                <input data-parsley-type="password" type="password" name="password" id="password" class="form-control" required value="{{$user->password}}"/>
+                                                                <input data-parsley-type="password" type="password" name="password" id="password" class="form-control"/>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

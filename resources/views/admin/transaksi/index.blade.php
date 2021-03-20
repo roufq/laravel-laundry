@@ -60,7 +60,7 @@
                                     <td>{{$row->user->name}}</td>
                                     <td>
                                         <a href="{{route('admin.transaksi.edit',$row->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                                        <a href="{{route('admin.transaksi.struck',$row->id)}}" target_blank class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{route('admin.transaksi.struck',$row->id)}}" target_blank class="btn btn-sm btn-primary"><i class="mdi mdi-file-pdf"></i></a>
                                         <a href="{{route('admin.transaksi.destroy',$row->id)}}" onclick="return confirm('apa kamu serius?')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
